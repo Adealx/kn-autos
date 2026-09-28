@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* =========================================
+   KN AUTOS GLOBAL STYLES
+========================================= */
+
+:root {
+  --background: #ffffff;
+  --foreground: #020617;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================
+   BOX SIZING
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   IMAGES
+========================================= */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   BUTTONS / LINKS / FORM CONTROLS
+========================================= */
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+/* =========================================
+   FORM CONTROLS
+========================================= */
+
+input,
+select,
+textarea {
+  font: inherit;
+  max-width: 100%;
+}
+
+/*
+  Prevent mobile Safari from automatically
+  zooming into form inputs.
+*/
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+  font: inherit;
+}
+
+/* =========================================
+   TEXT
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+/* =========================================
+   MOBILE SAFETY
+========================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+/*
+  Prevent extremely long vehicle names,
+  URLs or text from breaking the layout.
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+* {
+  scrollbar-width: thin;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE HELPERS
+========================================= */
+
+@media (max-width: 640px) {
+  /*
+    Keep content from touching the very edge
+    of smaller screens.
+  */
+
+  body {
+    min-width: 320px;
+  }
+
+  /*
+    Make buttons easier to tap on phones.
+  */
+
+  button,
+  a {
+    min-height: 44px;
+  }
+
+  /*
+    But don't force tiny inline links into
+    oversized blocks.
+  */
+
+  nav a {
+    min-height: auto;
+  }
+}
+
+/* =========================================
+   SAFE AREA SUPPORT
+   For modern phones with notches / Dynamic Island
+========================================= */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   Accessibility
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
