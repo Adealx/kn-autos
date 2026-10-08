@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -98,7 +98,7 @@ export default function HomeSearch({
         className="rounded-2xl bg-white p-6 shadow-2xl md:p-8"
       >
         <div className="mb-6">
-          <p className="text-sm font-bold uppercase tracking-wider text-red-600">
+          <p className="text-sm font-bold uppercase tracking-wider text-[#98763B]">
             Vehicle Search
           </p>
 
@@ -120,7 +120,7 @@ export default function HomeSearch({
               setMake(event.target.value);
               setModel("");
             }}
-            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none transition focus:border-red-500"
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none transition focus:border-[#D7B779]"
           >
             <option value="">
               All Makes
@@ -142,7 +142,7 @@ export default function HomeSearch({
             onChange={(event) =>
               setModel(event.target.value)
             }
-            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none transition focus:border-red-500"
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none transition focus:border-[#D7B779]"
           >
             <option value="">
               All Models
@@ -164,33 +164,33 @@ export default function HomeSearch({
             onChange={(event) =>
               setPriceRange(event.target.value)
             }
-            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none transition focus:border-red-500"
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none transition focus:border-[#D7B779]"
           >
             <option value="">
               Any Price
             </option>
 
             <option value="under20">
-              Under ₦20m
+              Under â‚¦20m
             </option>
 
             <option value="20to40">
-              ₦20m - ₦40m
+              â‚¦20m - â‚¦40m
             </option>
 
             <option value="40to60">
-              ₦40m - ₦60m
+              â‚¦40m - â‚¦60m
             </option>
 
             <option value="over60">
-              ₦60m+
+              â‚¦60m+
             </option>
           </select>
 
           {/* Search */}
           <button
             type="submit"
-            className="rounded-xl bg-slate-950 px-5 py-4 font-bold text-white transition hover:bg-red-600"
+            className="rounded-xl bg-slate-950 px-5 py-4 font-bold text-white transition hover:bg-[#D7B779]"
           >
             Search Vehicles
           </button>

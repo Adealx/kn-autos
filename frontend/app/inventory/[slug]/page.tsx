@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 import { getVehicles, Vehicle } from "@/lib/api";
 
@@ -12,8 +12,8 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "http://localhost:3001";
 
-const WHATSAPP_NUMBER = "2349012773916";
-const PHONE_NUMBER = "+2349012773916";
+const WHATSAPP_NUMBER = "2348067491717";
+const PHONE_NUMBER = "+2348067491717";
 
 function formatPrice(price: string) {
   return new Intl.NumberFormat("en-NG", {
@@ -88,7 +88,7 @@ export async function generateMetadata({
     return {
       title: "Vehicle Not Found",
       description:
-        "The requested vehicle could not be found at KN AUTOS.",
+        "The requested vehicle could not be found at SAM-A AUTOS.",
 
       robots: {
         index: false,
@@ -108,7 +108,7 @@ export async function generateMetadata({
 
   const description =
     vehicle.description?.trim() ||
-    `${vehicleName} for sale at KN AUTOS in Lagos, Nigeria. View price, mileage, specifications and contact our sales team.`;
+    `${vehicleName} for sale at SAM-A AUTOS in Lagos, Nigeria. View price, mileage, specifications and contact our sales team.`;
 
   const canonicalUrl =
     `${SITE_URL}/inventory/${vehicle.slug}`;
@@ -134,7 +134,7 @@ export async function generateMetadata({
       "Tokunbo cars in Lagos",
       "car dealership Lagos",
       "vehicles for sale Lagos",
-      "KN AUTOS",
+      "SAM-A AUTOS",
     ],
 
     alternates: {
@@ -150,9 +150,9 @@ export async function generateMetadata({
       type: "website",
       locale: "en_NG",
       url: canonicalUrl,
-      siteName: "KN AUTOS",
+      siteName: "SAM-A AUTOS",
 
-      title: `${vehicleName} for Sale in Lagos | KN AUTOS`,
+      title: `${vehicleName} for Sale in Lagos | SAM-A AUTOS`,
 
       description,
 
@@ -161,7 +161,7 @@ export async function generateMetadata({
           url: primaryImage,
           width: 1200,
           height: 630,
-          alt: `${vehicleName} for sale at KN AUTOS`,
+          alt: `${vehicleName} for sale at SAM-A AUTOS`,
         },
       ],
     },
@@ -174,13 +174,13 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
 
-      title: `${vehicleName} for Sale in Lagos | KN AUTOS`,
+      title: `${vehicleName} for Sale in Lagos | SAM-A AUTOS`,
 
       description,
 
       images: [primaryImage],
 
-      creator: "@KNAUTOS",
+      creator: "@SAMA_AUTOS",
     },
 
     /**
@@ -225,7 +225,7 @@ export default async function VehiclePage({
       <main className="flex min-h-screen items-center justify-center bg-slate-50 px-6">
         <div className="w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm sm:p-12">
           <div className="text-5xl">
-            🚗
+            ðŸš—
           </div>
 
           <h1 className="mt-5 text-3xl font-black text-slate-950">
@@ -239,7 +239,7 @@ export default async function VehiclePage({
 
           <Link
             href="/inventory"
-            className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-red-600 px-7 py-3 font-bold text-white transition hover:bg-red-700"
+            className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#D7B779] px-7 py-3 font-bold text-white transition hover:bg-[#EAD7AD]"
           >
             Browse Inventory
           </Link>
@@ -303,7 +303,7 @@ export default async function VehiclePage({
 
     description:
       vehicle.description?.trim() ||
-      `${vehicleName} available for sale at KN AUTOS in Lagos, Nigeria.`,
+      `${vehicleName} available for sale at SAM-A AUTOS in Lagos, Nigeria.`,
 
     sku: vehicle.stock_number,
 
@@ -359,7 +359,7 @@ export default async function VehiclePage({
       seller: {
         "@type": "AutoDealer",
 
-        name: "KN AUTOS",
+        name: "SAM-A AUTOS",
 
         url: SITE_URL,
 
@@ -399,10 +399,7 @@ export default async function VehiclePage({
             href="/"
             className="text-xl font-black tracking-tight sm:text-2xl"
           >
-            KN
-            <span className="text-red-500">
-              AUTOS
-            </span>
+            SAM-A <span className="text-[#D7B779]">AUTOS</span>
           </Link>
 
           <nav className="flex items-center gap-6">
@@ -443,7 +440,7 @@ export default async function VehiclePage({
 
           <Link
             href="/"
-            className="transition hover:text-red-600"
+            className="transition hover:text-[#98763B]"
           >
             Home
           </Link>
@@ -452,7 +449,7 @@ export default async function VehiclePage({
 
           <Link
             href="/inventory"
-            className="transition hover:text-red-600"
+            className="transition hover:text-[#98763B]"
           >
             Inventory
           </Link>
@@ -499,7 +496,7 @@ export default async function VehiclePage({
 
               {/* STATUS */}
 
-              <div className="absolute left-4 top-4 rounded-full bg-red-600 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white">
+              <div className="absolute left-4 top-4 rounded-full bg-[#D7B779] px-4 py-2 text-xs font-bold uppercase tracking-wide text-white">
                 {vehicle.status}
               </div>
 
@@ -541,7 +538,7 @@ export default async function VehiclePage({
 
           <div className="lg:pt-2">
 
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-600 sm:text-sm">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#98763B] sm:text-sm">
               {vehicle.condition || "Vehicle"}
             </p>
 
@@ -635,11 +632,11 @@ export default async function VehiclePage({
 
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                  `Hello KN AUTOS, I am interested in the ${vehicleName}. Please provide more information.`
+                  `Hello SAM-A AUTOS, I am interested in the ${vehicleName}. Please provide more information.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-13 items-center justify-center rounded-full bg-red-600 px-6 py-3 text-center font-bold text-white transition hover:bg-red-700"
+                className="flex min-h-13 items-center justify-center rounded-full bg-[#D7B779] px-6 py-3 text-center font-bold text-white transition hover:bg-[#EAD7AD]"
               >
                 Chat on WhatsApp
               </a>
@@ -648,7 +645,7 @@ export default async function VehiclePage({
                 href={`tel:${PHONE_NUMBER}`}
                 className="flex min-h-13 items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-center font-bold text-slate-950 transition hover:border-slate-950"
               >
-                Call KN AUTOS
+                Call SAM-A AUTOS
               </a>
 
             </div>
@@ -685,7 +682,7 @@ export default async function VehiclePage({
 
             <div>
 
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-600 sm:text-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#98763B] sm:text-sm">
                 Vehicle Details
               </p>
 
@@ -701,7 +698,7 @@ export default async function VehiclePage({
                   </p>
                 ) : (
                   <p>
-                    Contact KN AUTOS for more
+                    Contact SAM-A AUTOS for more
                     information about this vehicle.
                   </p>
                 )}
@@ -814,7 +811,7 @@ export default async function VehiclePage({
 
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
 
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-600 sm:text-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#98763B] sm:text-sm">
                 Features
               </p>
 
@@ -831,8 +828,8 @@ export default async function VehiclePage({
                       className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4"
                     >
 
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 font-bold text-red-600">
-                        ✓
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 font-bold text-[#98763B]">
+                        âœ“
                       </span>
 
                       <span className="text-sm font-medium text-slate-700">
@@ -854,12 +851,12 @@ export default async function VehiclePage({
           CTA
       ====================================================== */}
 
-      <section className="bg-red-600">
+      <section className="bg-[#D7B779]">
 
         <div className="mx-auto max-w-5xl px-4 py-14 text-center sm:px-6 sm:py-20">
 
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-red-100 sm:text-sm">
-            KN AUTOS
+            SAM-A AUTOS
           </p>
 
           <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl md:text-5xl">
@@ -867,7 +864,7 @@ export default async function VehiclePage({
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl leading-7 text-red-100">
-            Speak directly with the KN AUTOS sales
+            Speak directly with the SAM-A AUTOS sales
             team for availability, inspection and
             purchase information.
           </p>
@@ -876,18 +873,18 @@ export default async function VehiclePage({
 
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                `Hello KN AUTOS, I am interested in the ${vehicleName}.`
+                `Hello SAM-A AUTOS, I am interested in the ${vehicleName}.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-13 items-center justify-center rounded-full bg-white px-7 py-3 font-bold text-red-600 transition hover:bg-slate-100"
+              className="flex min-h-13 items-center justify-center rounded-full bg-white px-7 py-3 font-bold text-[#98763B] transition hover:bg-slate-100"
             >
               WhatsApp Us
             </a>
 
             <Link
               href="/inventory"
-              className="flex min-h-13 items-center justify-center rounded-full border border-white/40 px-7 py-3 font-bold text-white transition hover:bg-white hover:text-red-600"
+              className="flex min-h-13 items-center justify-center rounded-full border border-white/40 px-7 py-3 font-bold text-white transition hover:bg-white hover:text-[#98763B]"
             >
               Browse More Vehicles
             </Link>
@@ -909,10 +906,7 @@ export default async function VehiclePage({
           <div>
 
             <div className="text-xl font-black text-white">
-              KN
-              <span className="text-red-500">
-                AUTOS
-              </span>
+              SAM-A <span className="text-[#D7B779]">AUTOS</span>
             </div>
 
             <p className="mt-1 text-sm">
@@ -947,7 +941,7 @@ export default async function VehiclePage({
           </div>
 
           <p className="text-xs sm:text-sm">
-            © {new Date().getFullYear()} KN AUTOS.
+            Â© {new Date().getFullYear()} SAM-A AUTOS.
             All rights reserved.
           </p>
 
@@ -958,3 +952,4 @@ export default async function VehiclePage({
     </main>
   );
 }
+

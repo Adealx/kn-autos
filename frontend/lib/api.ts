@@ -1,6 +1,8 @@
-const API_URL =
+
+const API_URL = (
   process.env.NEXT_PUBLIC_API_URL ||
-  "http://127.0.0.1:8000/api";
+  "http://127.0.0.1:8000/api"
+).replace(/\/+$/, "");
 
 export interface VehicleImage {
   id: number;
@@ -44,49 +46,59 @@ export interface Vehicle {
   updated_at: string;
 }
 
-/**
- * Get all vehicles
- */
-export async function getVehicles(): Promise<Vehicle[]> {
-  const response = await fetch(`${API_URL}/vehicles/`, {
+async function fetchJSON<T>(url: string): Promise<T> {
+  const response = await fetch(url, {
     cache: "no-store",
+    headers: {
+      Accept: "application/json",
+    },
   });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch vehicles");
+    throw new Error(
+      `API request failed (${response.status}): ${url}`
+    );
   }
 
-  return response.json();
+  return response.json() as Promise<T>;
 }
 
 /**
- * Get a single vehicle using its SEO-friendly slug
- *
- * Example:
- * /inventory/2020-toyota-highlander
+ * Get all vehicles from Django REST API.
+ */
+export async function getVehicles(): Promise<Vehicle[]> {
+  const data = await fetchJSON<Vehicle[]>(
+    `${API_URL}/vehicles/`
+  );
+
+  // Support standard arrays and paginated Django REST responses.
+  if (Array.isArray(data)) {
+    return data;
+  }
+
+  const paginated = data as unknown as {
+    results?: Vehicle[];
+  };
+
+  return Array.isArray(paginated.results)
+    ? paginated.results
+    : [];
+}
+
+/**
+ * Get a vehicle by its SEO-friendly slug.
  */
 export async function getVehicle(
   slug: string
 ): Promise<Vehicle> {
-  const response = await fetch(
-    `${API_URL}/vehicles/?slug=${encodeURIComponent(slug)}`,
-    {
-      cache: "no-store",
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error("Vehicle not found");
-  }
-
-  const vehicles: Vehicle[] = await response.json();
+  const vehicles = await getVehicles();
 
   const vehicle = vehicles.find(
     (item) => item.slug === slug
   );
 
   if (!vehicle) {
-    throw new Error("Vehicle not found");
+    throw new Error(`Vehicle not found: ${slug}`);
   }
 
   return vehicle;

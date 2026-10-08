@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -215,7 +215,7 @@ export default function InventoryClient({
           <div className="flex items-center justify-between gap-4">
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-600 sm:text-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#98763B] sm:text-sm">
                 Search Inventory
               </p>
 
@@ -229,7 +229,7 @@ export default function InventoryClient({
               onClick={() =>
                 setFiltersOpen(!filtersOpen)
               }
-              className="flex min-h-11 shrink-0 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-red-600 lg:hidden"
+              className="flex min-h-11 shrink-0 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#D7B779] lg:hidden"
               aria-expanded={filtersOpen}
             >
               <span>
@@ -239,13 +239,13 @@ export default function InventoryClient({
               </span>
 
               {activeFilterCount > 0 && (
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-red-600 px-1 text-xs">
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#D7B779] px-1 text-xs">
                   {activeFilterCount}
                 </span>
               )}
 
               <span className="text-base">
-                {filtersOpen ? "−" : "+"}
+                {filtersOpen ? "âˆ’" : "+"}
               </span>
             </button>
 
@@ -270,7 +270,7 @@ export default function InventoryClient({
                 setSearch(event.target.value)
               }
               placeholder="Toyota, Highlander, Lexus..."
-              className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none transition placeholder:text-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+              className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none transition placeholder:text-slate-400 focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
             />
 
           </div>
@@ -311,7 +311,7 @@ export default function InventoryClient({
                   setMake(event.target.value);
                   setModel("");
                 }}
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               >
                 <option value="">
                   All Makes
@@ -344,7 +344,7 @@ export default function InventoryClient({
                 onChange={(event) =>
                   setModel(event.target.value)
                 }
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               >
                 <option value="">
                   All Models
@@ -377,7 +377,7 @@ export default function InventoryClient({
                 onChange={(event) =>
                   setYear(event.target.value)
                 }
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               >
                 <option value="">
                   Any Year
@@ -410,7 +410,7 @@ export default function InventoryClient({
                 onChange={(event) =>
                   setBodyType(event.target.value)
                 }
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               >
                 <option value="">
                   All Body Types
@@ -448,7 +448,7 @@ export default function InventoryClient({
                 onChange={(event) =>
                   setFuelType(event.target.value)
                 }
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               >
                 <option value="">
                   All Fuel Types
@@ -486,7 +486,7 @@ export default function InventoryClient({
                     event.target.value
                   )
                 }
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               >
                 <option value="">
                   All Transmissions
@@ -520,8 +520,8 @@ export default function InventoryClient({
                     event.target.value
                   )
                 }
-                placeholder="₦ Minimum"
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none placeholder:text-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                placeholder="â‚¦ Minimum"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none placeholder:text-slate-400 focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               />
             </div>
 
@@ -545,8 +545,8 @@ export default function InventoryClient({
                     event.target.value
                   )
                 }
-                placeholder="₦ Maximum"
-                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none placeholder:text-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                placeholder="â‚¦ Maximum"
+                className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base outline-none placeholder:text-slate-400 focus:border-[#D7B779] focus:ring-2 focus:ring-[#D7B779]/20"
               />
             </div>
 
@@ -569,7 +569,7 @@ export default function InventoryClient({
             <button
               type="button"
               onClick={resetFilters}
-              className="min-h-11 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-bold text-slate-700 transition hover:border-red-500 hover:text-red-600"
+              className="min-h-11 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-bold text-slate-700 transition hover:border-red-500 hover:text-[#98763B]"
             >
               Reset Filters
             </button>
@@ -614,7 +614,7 @@ export default function InventoryClient({
           <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center sm:p-12">
 
             <div className="text-4xl">
-              🚗
+              ðŸš—
             </div>
 
             <h3 className="mt-4 text-xl font-black">
@@ -629,7 +629,7 @@ export default function InventoryClient({
             <button
               type="button"
               onClick={resetFilters}
-              className="mt-6 min-h-11 rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-red-700"
+              className="mt-6 min-h-11 rounded-full bg-[#D7B779] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#EAD7AD]"
             >
               Clear Filters
             </button>
@@ -680,7 +680,7 @@ export default function InventoryClient({
 
                       {/* AVAILABLE */}
 
-                      <div className="absolute left-3 top-3 rounded-full bg-red-600 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-white sm:left-4 sm:top-4 sm:text-xs">
+                      <div className="absolute left-3 top-3 rounded-full bg-[#D7B779] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-white sm:left-4 sm:top-4 sm:text-xs">
                         Available
                       </div>
 
@@ -746,8 +746,8 @@ export default function InventoryClient({
                             )}
                           </p>
 
-                          <span className="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-bold text-white transition group-hover:bg-red-600">
-                            View Vehicle →
+                          <span className="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-bold text-white transition group-hover:bg-[#D7B779]">
+                            View Vehicle â†’
                           </span>
 
                         </div>

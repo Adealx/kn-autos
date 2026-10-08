@@ -1,8 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 import { getVehicles, type Vehicle } from "@/lib/api";
 import InventoryClient from "./InventoryClient";
 import MobileMenu from "../MobileMenu";
+
+export const dynamic = "force-dynamic";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -31,10 +33,10 @@ const SITE_URL =
  */
 
 export const metadata: Metadata = {
-  title: "Cars for Sale in Lagos | KN AUTOS",
+  title: "Cars for Sale in Lagos | SAM-A AUTOS",
 
   description:
-    "Browse quality cars for sale in Lagos, Nigeria at KN AUTOS. Search available vehicles by make, model, year, price, body type, fuel type and transmission.",
+    "Browse quality cars for sale in Lagos, Nigeria at SAM-A AUTOS. Search available vehicles by make, model, year, price, body type, fuel type and transmission.",
 
   keywords: [
     "cars for sale in Lagos",
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     "Toyota cars Lagos",
     "Lexus cars Lagos",
     "buy cars in Lagos",
-    "KN AUTOS",
+    "SAM-A AUTOS",
   ],
 
   /**
@@ -68,13 +70,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_NG",
     url: `${SITE_URL}/inventory`,
-    siteName: "KN AUTOS",
+    siteName: "SAM-A AUTOS",
 
     title:
-      "Cars for Sale in Lagos | KN AUTOS",
+      "Cars for Sale in Lagos | SAM-A AUTOS",
 
     description:
-      "Browse quality vehicles for sale at KN AUTOS in Lagos, Nigeria. Search our available inventory by make, model, price, year and specifications.",
+      "Browse quality vehicles for sale at SAM-A AUTOS in Lagos, Nigeria. Search our available inventory by make, model, price, year and specifications.",
 
     images: [
       {
@@ -82,7 +84,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt:
-          "KN AUTOS - Cars for Sale in Lagos, Nigeria",
+          "SAM-A AUTOS - Cars for Sale in Lagos, Nigeria",
       },
     ],
   },
@@ -96,10 +98,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
 
     title:
-      "Cars for Sale in Lagos | KN AUTOS",
+      "Cars for Sale in Lagos | SAM-A AUTOS",
 
     description:
-      "Browse quality vehicles for sale at KN AUTOS in Lagos, Nigeria.",
+      "Browse quality vehicles for sale at SAM-A AUTOS in Lagos, Nigeria.",
 
     images: [
       `${SITE_URL}/og-image.jpg`,
@@ -179,10 +181,7 @@ export default async function InventoryPage({
             href="/"
             className="text-xl font-black tracking-tight sm:text-2xl"
           >
-            KN
-            <span className="text-red-500">
-              AUTOS
-            </span>
+            SAM-A <span className="text-[#D7B779]">AUTOS</span>
           </Link>
 
           {/* DESKTOP NAVIGATION */}
@@ -212,7 +211,7 @@ export default async function InventoryPage({
 
             <a
               href="/#contact"
-              className="rounded-full bg-red-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-red-700"
+              className="rounded-full bg-[#D7B779] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#EAD7AD]"
             >
               Contact Us
             </a>
@@ -237,8 +236,8 @@ export default async function InventoryPage({
 
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
 
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-red-400 sm:text-sm">
-            KN AUTOS
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#D7B779] sm:text-sm">
+            SAM-A AUTOS
           </p>
 
           <h1 className="mt-3 text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl">
@@ -281,10 +280,7 @@ export default async function InventoryPage({
           <div>
 
             <div className="text-xl font-black text-white">
-              KN
-              <span className="text-red-500">
-                AUTOS
-              </span>
+              SAM-A <span className="text-[#D7B779]">AUTOS</span>
             </div>
 
             <p className="mt-1 text-sm">
@@ -319,7 +315,7 @@ export default async function InventoryPage({
           </div>
 
           <p className="text-xs sm:text-sm">
-            © {new Date().getFullYear()} KN AUTOS.
+            Â© {new Date().getFullYear()} SAM-A AUTOS.
             All rights reserved.
           </p>
 
@@ -330,3 +326,4 @@ export default async function InventoryPage({
     </main>
   );
 }
+
