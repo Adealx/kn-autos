@@ -1,7 +1,7 @@
 
 const API_URL = (
   process.env.NEXT_PUBLIC_API_URL ||
-  "http://127.0.0.1:8000/api"
+  "https://sam-a-autos-api.onrender.com/api"
 ).replace(/\/+$/, "");
 
 export interface VehicleImage {
@@ -64,25 +64,18 @@ async function fetchJSON<T>(url: string): Promise<T> {
 }
 
 /**
- * Get all vehicles from Django REST API.
+ * Get all vehicles from the Django REST API.
  */
 export async function getVehicles(): Promise<Vehicle[]> {
-  const data = await fetchJSON<Vehicle[]>(
-    `${API_URL}/vehicles/`
-  );
+  const data = await fetchJSON<
+    Vehicle[] | { results?: Vehicle[] }
+  >(`${API_URL}/vehicles/`);
 
-  // Support standard arrays and paginated Django REST responses.
   if (Array.isArray(data)) {
     return data;
   }
 
-  const paginated = data as unknown as {
-    results?: Vehicle[];
-  };
-
-  return Array.isArray(paginated.results)
-    ? paginated.results
-    : [];
+  return Array.isArray(data.results) ? data.results : [];
 }
 
 /**
