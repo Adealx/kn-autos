@@ -747,7 +747,7 @@ export default function InventoryClient({
                           </p>
 
                           <span className="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-bold text-white transition group-hover:bg-[#D7B779]">
-                            View Vehicle â†’
+                            View Vehicle →
                           </span>
 
                         </div>

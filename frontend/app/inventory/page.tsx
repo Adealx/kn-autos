@@ -315,7 +315,7 @@ export default async function InventoryPage({
           </div>
 
           <p className="text-xs sm:text-sm">
-            Â© {new Date().getFullYear()} SAM-A AUTOS.
+            © {new Date().getFullYear()} SAM-A AUTOS.
             All rights reserved.
           </p>
 
