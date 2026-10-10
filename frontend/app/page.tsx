@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { getVehicles, type Vehicle } from "@/lib/api";
 import HomeSearch from "./HomeSearch";
 import MobileMenu from "./MobileMenu";
+import VehicleSlideshow from "./VehicleSlideshow";
 
 export const dynamic = "force-dynamic";
 
@@ -251,6 +252,9 @@ export default async function Home() {
       <section className="relative z-10 bg-white">
         <HomeSearch vehicles={vehicles} />
       </section>
+
+      {/* LIVE VEHICLE SLIDESHOW */}
+      <VehicleSlideshow vehicles={availableVehicles} />
 
       {/* FEATURED INVENTORY */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
