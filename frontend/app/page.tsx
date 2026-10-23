@@ -83,6 +83,16 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen overflow-x-clip bg-white text-slate-900">
+      {/* TOP ANNOUNCEMENT STRIP */}
+      <div className="bg-[#D7B779] px-4 py-3 text-center text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#08101F] sm:text-xs sm:tracking-[0.18em]">
+        <span aria-hidden="true">🚘 </span>
+        100% ACCIDENT-FREE CARS
+        <span className="mx-2 hidden sm:inline">|</span>
+        <span className="hidden sm:inline">QUALITY YOU CAN TRUST</span>
+        <span className="mx-2 hidden sm:inline">|</span>
+        <span className="hidden sm:inline">DRIVE WITH CONFIDENCE</span>
+      </div>
+
       {/* HEADER */}
       <header className="relative z-50 border-b border-white/10 bg-[#08101F] shadow-lg">
         <div className="mx-auto flex min-h-[76px] max-w-7xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
@@ -172,6 +182,25 @@ export default async function Home() {
               vehicle with SAM-A AUTOS.
             </p>
 
+            {/* ACCIDENT-FREE PROMISE */}
+            <div className="mt-6 flex max-w-2xl items-start gap-4 rounded-2xl border border-[#D7B779]/60 bg-[#08101F]/90 p-4 shadow-lg sm:p-5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#D7B779] text-xl font-black text-[#08101F]">
+                ✓
+              </div>
+
+              <div>
+                <h2 className="text-base font-black text-[#EAD7AD] sm:text-lg">
+                  100% Accident-Free Cars
+                </h2>
+
+                <p className="mt-1 text-sm leading-6 text-white/90">
+                  Shop with greater confidence. Speak with our team about
+                  vehicle history and condition before making your choice.
+                </p>
+              </div>
+            </div>
+
+            {/* HERO ACTION BUTTONS */}
             <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
               <Link
                 href="/inventory"
@@ -195,6 +224,7 @@ export default async function Home() {
               </a>
             </div>
 
+            {/* FEATURED HERO VEHICLE */}
             {heroVehicle ? (
               <div className="mt-10 max-w-3xl rounded-2xl border border-white/20 bg-[#08101F]/95 p-4 shadow-2xl sm:mt-12 sm:p-5">
                 <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-[#E4C17F]">
@@ -204,13 +234,16 @@ export default async function Home() {
                 <div className="grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4">
                   <div className="min-w-0">
                     <p className="text-xs text-slate-300">Vehicle</p>
+
                     <p className="mt-1 truncate text-sm font-semibold text-white">
-                      {heroVehicle.year} {heroVehicle.make} {heroVehicle.model}
+                      {heroVehicle.year} {heroVehicle.make}{" "}
+                      {heroVehicle.model}
                     </p>
                   </div>
 
                   <div>
                     <p className="text-xs text-slate-300">Mileage</p>
+
                     <p className="mt-1 text-sm font-semibold text-white">
                       {formatMileage(heroVehicle.mileage)} km
                     </p>
@@ -218,6 +251,7 @@ export default async function Home() {
 
                   <div>
                     <p className="text-xs text-slate-300">Transmission</p>
+
                     <p className="mt-1 text-sm font-semibold capitalize text-white">
                       {heroVehicle.transmission || "Contact us"}
                     </p>
@@ -225,6 +259,7 @@ export default async function Home() {
 
                   <div className="min-w-0">
                     <p className="text-xs text-slate-300">Price</p>
+
                     <p className="mt-1 break-words text-sm font-bold text-[#EAD7AD]">
                       {formatPrice(heroVehicle.price)}
                     </p>
@@ -349,6 +384,7 @@ export default async function Home() {
                     <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-4 border-b border-slate-100 pb-5 text-sm text-slate-600">
                       <div>
                         <p className="text-xs text-slate-500">Mileage</p>
+
                         <p className="mt-1 font-medium">
                           {formatMileage(vehicle.mileage)} km
                         </p>
@@ -356,6 +392,7 @@ export default async function Home() {
 
                       <div>
                         <p className="text-xs text-slate-500">Transmission</p>
+
                         <p className="mt-1 font-medium capitalize">
                           {vehicle.transmission || "Contact us"}
                         </p>
@@ -363,6 +400,7 @@ export default async function Home() {
 
                       <div>
                         <p className="text-xs text-slate-500">Fuel type</p>
+
                         <p className="mt-1 font-medium capitalize">
                           {vehicle.fuel_type || "Contact us"}
                         </p>
@@ -372,6 +410,7 @@ export default async function Home() {
                         <p className="text-xs text-slate-500">
                           Exterior colour
                         </p>
+
                         <p className="mt-1 font-medium">
                           {vehicle.exterior_color || "Contact us"}
                         </p>
