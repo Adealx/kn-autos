@@ -130,3 +130,49 @@ export async function getVehicle(slug: string): Promise<Vehicle> {
 
   return vehicle;
 }
+
+
+export interface ClearanceEnquiry {
+  name: string;
+  email: string;
+  phone: string;
+  service_type:
+    | "vehicle_clearing"
+    | "vehicle_importation"
+    | "cargo_clearing"
+    | "freight_forwarding"
+    | "shipping_logistics"
+    | "documentation"
+    | "other";
+  subject?: string;
+  message: string;
+  shipment_origin?: string;
+  shipment_destination?: string;
+  cargo_description?: string;
+}
+
+export async function submitClearanceEnquiry(
+  enquiry: ClearanceEnquiry
+): Promise<{ id: number; [key: string]: unknown }> {
+  const response = await fetch(`${API_URL}/clearance-enquiries/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(enquiry),
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const message =
+      data && typeof data === "object"
+        ? JSON.stringify(data)
+        : "Unable to submit your enquiry. Please try again.";
+
+    throw new Error(message);
+  }
+
+  return data;
+}

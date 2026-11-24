@@ -96,6 +96,14 @@ export default function MobileMenu() {
             >
               Inventory
             </Link>
+            
+            <Link
+              href="/clearing-forwarding"
+              onClick={closeMenu}
+              className="rounded-xl px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10 hover:text-[#D7B779]"
+            >
+              Clearing & Forwarding
+            </Link>
 
             <Link
               href="/#about"

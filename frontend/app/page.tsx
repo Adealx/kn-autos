@@ -115,6 +115,13 @@ export default async function Home() {
             >
               Inventory
             </Link>
+            
+            <Link
+              href="/clearing-forwarding"
+              className="bg-transparent text-sm font-semibold text-white hover:!text-[#D7B779]"
+            >
+              Clearing & Forwarding
+            </Link>
 
             <Link
               href="/#about"
@@ -612,6 +619,13 @@ export default async function Home() {
               className="text-slate-200 hover:text-[#D7B779]"
             >
               Inventory
+            </Link>
+
+            <Link
+              href="/clearing-forwarding"
+              className="text-slate-200 hover:text-[#D7B779]"
+            >
+              Clearing & Forwarding
             </Link>
 
             <Link
