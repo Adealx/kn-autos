@@ -1,7 +1,8 @@
 
 const API_URL = (
+  process.env.INTERNAL_API_URL ||
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://sam-a-autos-api.onrender.com/api"
+  "http://127.0.0.1:8000/api"
 ).replace(/\/+$/, "");
 
 export interface VehicleImage {
@@ -154,7 +155,7 @@ export interface ClearanceEnquiry {
 export async function submitClearanceEnquiry(
   enquiry: ClearanceEnquiry
 ): Promise<{ id: number; [key: string]: unknown }> {
-  const response = await fetch(`${API_URL}/clearance-enquiries/`, {
+  const response = await fetch("/api/clearance-enquiries/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

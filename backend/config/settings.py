@@ -88,12 +88,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv(
+        "CSRF_TRUSTED_ORIGINS",
+        "https://sam-a-autos-frontend.onrender.com",
+    ).split(",")
+    if origin.strip()
+]
 
 # ---------------------------------------------------------
 # Database
 # ---------------------------------------------------------
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+
+if not DATABASE_URL and not DEBUG:
+    raise RuntimeError(
+        "DATABASE_URL must be configured in production."
+    )
 
 if DATABASE_URL:
     DATABASES = {
