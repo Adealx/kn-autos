@@ -1,7 +1,5 @@
 ﻿
-# ==========================================
-# STAGE 1: BUILD NEXT.JS FRONTEND
-# ==========================================
+# STAGE 1: BUILD NEXT.JS
 FROM node:24-bookworm-slim AS frontend-build
 
 WORKDIR /app/frontend
@@ -17,10 +15,8 @@ ENV NEXT_PUBLIC_SITE_URL=https://sam-a-autos-frontend.onrender.com
 RUN npm run build
 
 
-# ==========================================
 # STAGE 2: DJANGO + NEXT.JS + NGINX
-# ==========================================
-FROM node:24-bookworm-slim
+FROM python:3.12-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -28,20 +24,20 @@ ENV PIP_NO_CACHE_DIR=1
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3 \
-    python3-pip \
-    python3-venv \
     nginx \
     supervisor \
     gettext-base \
-    libpq5 \
+    libatomic1 \
+    libstdc++6 \
     && rm -rf /var/lib/apt/lists/*
+
+COPY --from=frontend-build /usr/local/bin/node /usr/local/bin/node
 
 WORKDIR /app
 
 COPY backend/requirements.txt /app/backend/requirements.txt
 
-RUN python3 -m venv /opt/venv \
+RUN python -m venv /opt/venv \
     && /opt/venv/bin/pip install --no-cache-dir -r /app/backend/requirements.txt
 
 ENV PATH="/opt/venv/bin:$PATH"
